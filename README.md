@@ -17,6 +17,8 @@
 ![主页截图](https://github.com/user-attachments/assets/e17be9c2-8892-4e67-8794-633f7e989930)
 - **设置截图**：
 ![设置截图](https://github.com/user-attachments/assets/ab67f5fe-b84c-4ef7-92e9-3bd736824a0f)
+- **使用预览**：
+![使用预览](https://github.com/user-attachments/assets/de1fe616-2e32-447e-a8f9-c1ee3d601231)
 
 
 ## 🚀 使用指南
