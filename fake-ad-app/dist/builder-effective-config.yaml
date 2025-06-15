@@ -1,0 +1,20 @@
+directories:
+  output: dist
+  buildResources: build
+appId: com.yourname.fake-ad-app
+productName: 摸鱼神器
+files:
+  - filter:
+      - main.js
+      - index.html
+      - style.css
+      - renderer.js
+      - settings.html
+      - settings.css
+      - settings.js
+      - preload.js
+      - assets/**/*
+win:
+  icon: assets/images/icon.png
+  target: nsis
+electronVersion: 31.7.7

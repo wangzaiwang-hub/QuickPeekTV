@@ -1,0 +1,37 @@
+{
+  "name": "fake-ad-app",
+  "version": "1.0.0",
+  "description": "A fake ad application for fun.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "prebuild": "node -e \"const fs=require('fs-extra'); fs.removeSync('dist'); const src='fake-ad-app/'; fs.emptyDirSync('build_source'); fs.copySync(src + 'assets', 'build_source/assets'); ['main.js', 'index.html', 'style.css', 'renderer.js', 'settings.html', 'settings.css', 'settings.js'].forEach(f => fs.copySync(src + f, 'build_source/' + f)); fs.copySync('package.build.json', 'build_source/package.json');\"",
+    "build": "electron-builder"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron-store": "^9.0.0",
+    "fs-extra": "^11.2.0"
+  },
+  "devDependencies": {
+    "electron": "^31.0.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.yourname.quickpeektv",
+    "productName": "QuickPeekTV",
+    "files": [
+      "**/*"
+    ],
+    "directories": {
+      "app": "build_source",
+      "output": "dist"
+    },
+    "win": {
+      "icon": "assets/icon.png",
+      "target": "nsis"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "fake-ad-app",
+  "version": "1.0.0",
+  "description": "A fake ad application for fun.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "electron-store": "^9.0.0"
+  },
+  "devDependencies": {
+    "electron": "^31.0.1",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.yourname.fake-ad-app",
+    "productName": "摸鱼神器",
+    "files": [
+      "main.js",
+      "index.html",
+      "style.css",
+      "renderer.js",
+      "settings.html",
+      "settings.css",
+      "settings.js",
+      "preload.js",
+      "assets/**/*"
+    ],
+    "win": {
+      "icon": "assets/images/icon.png",
+      "target": "nsis"
+    },
+    "directories": {
+      "output": "dist"
+    }
+  }
+}

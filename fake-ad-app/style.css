@@ -1,0 +1,207 @@
+body {
+    font-family: 'SimSun', 'Microsoft YaHei', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-size: 12px;
+    color: #333;
+}
+
+/* 隐藏滚动条但保留滚动功能 */
+body::-webkit-scrollbar {
+    /* 此规则不再需要 */
+}
+
+.container {
+    width: 100%; /* 宽度占满新窗口 */
+    height: 100vh; /* 高度占满视口 */
+    margin: 0; /* 移除外边距 */
+    background-color: #fff;
+    border: 3px solid #005aab;
+    border-top: 30px solid #005aab;
+    position: relative;
+    box-sizing: border-box; /* 让边框和内边距包含在宽高内 */
+    display: flex; /* 使用flex布局让内容更好地填充 */
+    flex-direction: column; /* 垂直排列 */
+    -webkit-app-region: drag; /* 声明整个容器可拖动 */
+}
+
+.container::before {
+    content: 'QuickPeekTV';
+    position: absolute;
+    top: -25px;
+    left: 10px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    /* 移除之前错误的继承属性 */
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #e8f4ff;
+    padding: 5px 10px;
+    border-bottom: 1px solid #ccc;
+    flex-shrink: 0; /* 防止头部被压缩 */
+}
+
+/* 导航链接等可点击元素需要设置为不可拖动 */
+a, video, .side-ad-item, .bottom-ad-1, .bottom-ad-2, .bottom-ad-3, .bottom-ad-4, #logo-toggle {
+    -webkit-app-region: no-drag;
+}
+
+/* 再次强调，确保设置按钮绝对可点击 */
+#settings-link {
+    -webkit-app-region: no-drag;
+}
+
+.header .logo img {
+    height: 20px;
+    /* 您需要提供logo图片 */
+}
+
+.header nav {
+    margin-left: 20px;
+}
+
+.header nav a {
+    text-decoration: none;
+    color: #000;
+    padding: 5px 15px;
+    font-size: 14px;
+}
+
+.header nav a.active, .header nav a:hover {
+    background-color: #005aab;
+    color: #fff;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto auto;
+    gap: 10px;
+    padding: 10px;
+    flex-grow: 1; /* 让内容区域占据剩余空间 */
+    min-height: 0; /* 修正flex布局问题 */
+    overflow-y: auto; /* 让内容区独立滚动 */
+}
+
+/* 针对内容区隐藏滚动条 */
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+.main-video {
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    display: flex; /* 使用Flex布局 */
+    flex-direction: column; /* 垂直排列 */
+    background-color: #000; /* 给视频区一个黑色背景 */
+}
+
+.top-ad-gif {
+    width: 100%;
+    height: 260px; /* 设置一个固定的高度，您可以根据需要调整这个值 */
+    object-fit: cover; /* 确保图片内容填满空间且不变形 */
+    flex-shrink: 0; /* 防止GIF被压缩 */
+}
+
+.ad-text-overlay {
+    background-color: #fff; /* 改为白色背景 */
+    color: #333; /* 改为深色字体 */
+    border-bottom: 1px solid #ccc; /* 添加下边框 */
+    text-align: center; /* 文本居中 */
+    padding: 8px 0; /* 调整上下内边距 */
+    font-size: 14px; /* 字体大小 */
+    font-weight: bold; /* 字体加粗 */
+    text-decoration: none; /* 移除下划线 */
+    flex-shrink: 0; /* 防止被压缩 */
+    -webkit-app-region: no-drag; /* 确保文字可点击 */
+}
+
+#browser-view-container {
+    flex-grow: 1; /* 占据所有剩余空间 */
+    min-height: 0; /* Flexbox hack，确保能正确缩小 */
+}
+
+.side-ad {
+    grid-column: 3 / 5;
+    grid-row: 1 / 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-ad-grid {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+.side-ad .ad-title {
+    text-align: center;
+    margin-bottom: 10px;
+    margin: 5px 0;
+}
+
+.side-ad .ad-title .red-text {
+    color: red;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.side-ad .ad-title p {
+    margin: 5px 0;
+}
+
+.side-ad .side-ad-item {
+    width: 48%;
+    height: 48%;
+    overflow: hidden;
+}
+
+.side-ad .side-ad-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.side-ad .side-ad-item p, .side-ad ul {
+    display: none;
+}
+
+.content div[class^="bottom-ad-"] {
+    grid-row: 3 / 4;
+    height: 140px;
+    overflow: hidden;
+}
+
+.content div[class^="bottom-ad-"] img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.content div[class^="bottom-ad-"] p {
+    margin: 5px 0 0;
+    text-align: center;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #e8f4ff;
+    border-top: 1px solid #ccc;
+    flex-shrink: 0; /* 防止尾部被压缩 */
+}
+
+.footer a {
+    text-decoration: none;
+    color: #000;
+} 

@@ -1,0 +1,13 @@
+directories:
+  output: dist
+  buildResources: build
+  app: build_source
+appId: com.yourname.quickpeektv
+productName: QuickPeekTV
+files:
+  - filter:
+      - '**/*'
+win:
+  icon: assets/icon.png
+  target: nsis
+electronVersion: 31.7.7
